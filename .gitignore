@@ -1,0 +1,12 @@
+# Ignore Mac system files
+.DS_store
+
+# Ignore vscode config files
+.vscode
+
+.cache
+.class
+dist
+bin
+lib
+a.out
