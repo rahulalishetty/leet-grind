@@ -1,6 +1,6 @@
 # 169. Majority Element
 
-<span style="color:rgb(40, 194, 68);background:#eee;padding:2px 6px;border-radius:10px">Easy</span>
+<code><span style="color:rgb(40, 194, 68);">Easy</span></code>
 
 Given an array nums of size n, return the majority element.
 
