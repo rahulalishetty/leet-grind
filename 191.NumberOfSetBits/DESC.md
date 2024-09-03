@@ -1,5 +1,7 @@
 # 191. Number of 1 Bits
 
+<code style="color:rgb(40, 194, 68);">Easy</code>
+
 Write a function that takes the binary representation of a positive integer and returns the number of
 set bits it has (also known as the Hamming weight).
 
