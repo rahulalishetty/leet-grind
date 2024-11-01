@@ -12,5 +12,15 @@ function longestPalindrome(s) {
 
   for (let i = 0; i < s.length; i++) {
     let odd = expand(i, i);
+    if (odd.length > ans.length) {
+      ans = odd;
+    }
+
+    let even = expand(i, i + 1);
+    if (even.length > ans.length) {
+      ans = even;
+    }
   }
+
+  return ans;
 }
