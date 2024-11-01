@@ -1,11 +1,11 @@
 /**
   Let look at the relation between x and x′=x/2
-  x=(1001011101)=(605) 
+  x=(1001011101)=(605)
   x′=(100101110)=(302)
   We can see that x′ is differ than x by one bit, because x′
   can be considered as the result of removing the least significant bit of x.
   Thus, we have the following transition function of pop count P(x):
-  P(x)=P(x/2)+(xmod2)
+  P(x)=P(x/2)+(x mod 2)
 */
 
 function countBits(n) {
