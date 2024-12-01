@@ -49,6 +49,17 @@
 - [`297. Serialize and Deserialize Binary Tree`](./297.SerializeandDeserializeBinaryTree/DESC.md)
 - [`236. Lowest Common Ancestor of a Binary Tree`](./236.LowestCommonAncestorofaBinaryTree/DESC.md)
 
+## Recursion Essentials
+
+- [`Principle of Recursion`](./344.ReverseString/Explanation.md)
+- [`344. Reverse String`](./344.ReverseString/DESC.md)
+- [`24. Swap Nodes in Pairs`](./24.SwapNodesinPairs/DESC.md)
+- [`206. Reverse Linked List`](./206.ReverseLinkedList/DESC.md)
+- [`700. Search in a Binary Search Tree`](./700.SearchinaBinarySearchTree/DESC.md)
+- [`119. Pascal's Triangle II`](./119.Pascal'sTriangleII/DESC.md)
+- [`779. Kth Symbol In Grammer`](./779.KthSymbolInGrammer/DESC.md)
+- [`95. Unique Binary Search Trees II`](./95.UniqueBinarySearchTreesII/DESC.md)
+
 - Problem Description is added as DESC.md
 - Each directory name contains problem no and label
 
