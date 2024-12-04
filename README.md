@@ -2,9 +2,37 @@
 
 ## Dynamic Programming Essentials
 
+- [`Dynamic Programming Principles`](./198.HouseRobber/DP.md)
+- [`746. Min Cost Climbing Stairs`](./746.MinCostClimbingStairs/DESC.md)
+- [`740. Delete and Earn`](./740.DeleteandEarn/DESC.md)
+- [`1770. Maximum Score from Performing MultiplicationOperations`](./1770.MaximumScorefromPerformingMultiplicationOperations/DESC.md)
+- [`1143. Longest Common Subsequence`](./1143.LongestCommonSubsequence/DESC.md)
+- [`221. Maximal Square`](./221.MaximalSquare/DESC.md)
+- [`1335. Minimum Difficulty of a Job Schedule`](./1335.MinimumDifficultyofaJobSchedule/DESC.md)
+- [`322. Coin Change`](./322.CoinChange/DESC.md)
+- [`139. Word Break`](./139.WordBreak/DESC.md)
+- [`300. Longest Increasing Subsequence`](./300.LongestIncreasingSubsequence/DESC.md)
+- [`121. Best Time to Buy and Sell Stock`](./121.BestTimetoBuyandSellStock/DESC.md)
+- [`122. Best Time to Buy and Sell Stock II`](./122.BestTimetoBuyandSellStockII/DESC.md)
+- [`123. Best Time to Buy and Sell Stock III`](./123.BestTimetoBuyandSellStockIII/DESC.md)
+- [`188. Best Time to Buy and Sell Stock IV`](./188.BestTimetoBuyandSellStockIV/DESC.md)
+- [`309. Best Time to Buy and Sell Stock with Cooldown`](./309.BestTimetoBuyandSellStockwithCooldown/DESC.md)
+- [`714. Best Time to Buy and Sell Stock with Transaction Fee`](./714.BestTimetoBuyandSellStockwithTransactionFee/DESC.md)
 - [`55. Jump Game`](./55.JumpGame/DESC.md)
 - [`45. Jump Game II`](./45.JumpGameII/DESC.md)
+- [`746. Min Cost Climbing Stairs`](./746.MinCostClimbingStairs/DESC.md)
 - [`72. Edit Distance`](./72.EditDistance/DESC.md)
+- [`62. Unique Paths`](./62.UniquePaths/DESC.md)
+- [`63. Unique Paths II`](./63.UniquePathsII/DESC.md)
+- [`64. Minimum Path Sum`](./64.MinimumPathSum/DESC.md)
+- [`931. Minimum Falling Path Sum`](./931.MinimumFallingPathSum/DESC.md)
+- [`256. Paint House`](./256.PaintHouse/DESC.md)
+- [`265. Paint House II`](./265.PaintHouseII/DESC.md)
+- [`1220. Count Vowels Permutation`](./1220.CountVowelsPermutation/DESC.md)
+- [`718. Maximum Length of Repeated Subarray`](./718.MaximumLengthofRepeatedSubarray/DESC.md)
+- [`1155. Number of Dice Rolls With Target Sum`](./1155.NumberofDiceRollsWithTargetSum/DESC.md)
+- [`790. Domino and Tromino Tiling`](./790.DominoandTrominoTiling/DESC.md)
+- [`97. Interleaving String`](./97.InterleavingString/DESC.md)
 
 ## Bit Manipulation Essentials
 
