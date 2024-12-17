@@ -36,12 +36,23 @@
 
 ## Bit Manipulation Essentials
 
+- [`Bit Manipulation Principles`](./507.Base7/DESC.md)
+- [`507. Base 7`](./507.Base7/DESC.md)
+- [`405. Convert a Number to Hexadecimal`](./405.ConvertaNumbertoHexadecimal/DESC.md)
+- [`191. Number Of Set Bits`](./191.NumberOfSetBits/DESC.md)
+- [`190. Reverse Bits`](./190.ReverseBits/Desc.md)
+- [`371. SumOfTwoIntegers`](./371.SumOfTwoIntegers/DESC.md)
+- [`89. Gray Code`](./89.GrayCode/DESC.md)
+- [`201. Bitwise AND of Numbers Range`](./201.BitwiseANDofNumbersRange/DESC.md)
+- [`338. Counting Bits`](./338.CountingBits/DESC.md)
 - [`139. Single Number`](./139.SingleNumber/DESC.md)
 - [`137. Single Number II`](./137.SingleNumberII/DESC.md)
 - [`260. Single Number III`](./260.SingleNumberIII/DESC.md)
 - [`421. Maximum XOR of Two Numbers in an Array`](./421.MaximumXORofTwoNumbers/DESC.md)
 - [`187. Repeated DNA Sequences`](./187.RepeatedDNASequences/DESC.md)
 - [`318. Maximum Product of Word Lengths`](./318.MaximumProductofWordLengths/DESC.md)
+- [`66. PlusOne`](./66.PlusOne/DESC.md)
+- [`67. AddBinary`](./67.AddBinary/DESC.md)
 
 ## BackTracking Essentials
 
@@ -54,12 +65,6 @@
 - [`40. Combination Sum II`](./40.CombinationSumII/DESC.md)
 - [`216. Combination Sum III`](./216.CombinationSumIII/DESC.md)
 - [`131. Palindrome Partition`](./131.PalindromePartitioning/DESC.md)
-
-## Intresting Boolean Arithmetic
-
-- [`66. PlusOne`](./66.PlusOne/DESC.md)
-- [`67. AddBinary`](./67.AddBinary/DESC.md)
-- [`371. SumOfTwoIntegers`](./371.SumOfTwoIntegers/DESC.md)
 
 ## Binary Search Tree Essentials
 
@@ -76,6 +81,11 @@
 - [`117. Populating Next Right Pointers in Each Node II`](./117.PopulatingNextRightPointersinEachNodeII/DESC.md)
 - [`297. Serialize and Deserialize Binary Tree`](./297.SerializeandDeserializeBinaryTree/DESC.md)
 - [`236. Lowest Common Ancestor of a Binary Tree`](./236.LowestCommonAncestorofaBinaryTree/DESC.md)
+
+## N-ary tree Essentials
+
+- [`431. Encode N-ary Tree to Binary Tree`](./431.EncodeN-aryTreetoBinaryTree/DESC.md)
+- [`428. Serialize and Deserialize N-ary Tree`](./428.SerializeandDeserializeN-aryTree/DESC.md)
 
 ## Recursion Essentials
 
