@@ -65,6 +65,7 @@
 - [`40. Combination Sum II`](./40.CombinationSumII/DESC.md)
 - [`216. Combination Sum III`](./216.CombinationSumIII/DESC.md)
 - [`131. Palindrome Partition`](./131.PalindromePartitioning/DESC.md)
+- [`51. N-Queens`](./51.N-Queens/DESC.md)
 
 ## Binary Search Tree Essentials
 
@@ -98,10 +99,15 @@
 - [`779. Kth Symbol In Grammer`](./779.KthSymbolInGrammer/DESC.md)
 - [`95. Unique Binary Search Trees II`](./95.UniqueBinarySearchTreesII/DESC.md)
 
+## Sliding Window Technique
+
+- [`76. Minimum Window Substring`](./76.MinimumWindowSubstring/DESC.md)
+
+## Interesting
+
+- [`10. Regular Expression Matching`](./10.RegularExpressionMatching/DESC.md)
+- [`65. ValidNumber`](./65.ValidNumber/DESC.md) : Has Interesting way of solving through `DFA`
+- [`84. Largest Rectangle in Histogram`](./84.LargestRectangleinHistogram/DESC.md)
+- [`85. Maximal Rectangle`](./85.MaximalRectangle/DESC.md) : Has Interesting combination of above problem solution
+
 - Problem Description is added as DESC.md
-- Each directory name contains problem no and label
-
-Naming Conventions used for files:
-
-- use all small and snake casing for naming files other than JAVA (includes js,cpp)
-- well for java do you have a choice 😀
