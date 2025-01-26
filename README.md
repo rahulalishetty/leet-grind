@@ -33,10 +33,13 @@
 - [`1155. Number of Dice Rolls With Target Sum`](./1155.NumberofDiceRollsWithTargetSum/DESC.md)
 - [`790. Domino and Tromino Tiling`](./790.DominoandTrominoTiling/DESC.md)
 - [`97. Interleaving String`](./97.InterleavingString/DESC.md)
+- [`87. ScrambleString`](./87.ScrambleString/DESC.md)
+- [`131. Palindrome Partition`](./131.PalindromePartitioning/DESC.md)
+- [`132. Palindrome Partitioning II`](./132.PalindromePartitioningII/DESC.md)
 
 ## Bit Manipulation Essentials
 
-- [`Bit Manipulation Principles`](./507.Base7/DESC.md)
+- [`Bit Manipulation Principles`](./507.Base7/BitManipulation.md)
 - [`507. Base 7`](./507.Base7/DESC.md)
 - [`405. Convert a Number to Hexadecimal`](./405.ConvertaNumbertoHexadecimal/DESC.md)
 - [`191. Number Of Set Bits`](./191.NumberOfSetBits/DESC.md)
@@ -64,7 +67,6 @@
 - [`39. Combination Sum`](./39.CombinationSum/DESC.md)
 - [`40. Combination Sum II`](./40.CombinationSumII/DESC.md)
 - [`216. Combination Sum III`](./216.CombinationSumIII/DESC.md)
-- [`131. Palindrome Partition`](./131.PalindromePartitioning/DESC.md)
 - [`51. N-Queens`](./51.N-Queens/DESC.md)
 
 ## Binary Search Tree Essentials
@@ -98,6 +100,11 @@
 - [`119. Pascal's Triangle II`](./119.Pascal'sTriangleII/DESC.md)
 - [`779. Kth Symbol In Grammer`](./779.KthSymbolInGrammer/DESC.md)
 - [`95. Unique Binary Search Trees II`](./95.UniqueBinarySearchTreesII/DESC.md)
+
+## Graph Essentials
+
+- [`127. Word Ladder`](./127.WordLadder/DESC.md)
+- [`126. Word Ladder II`](./126.WordLadderII/DESC.md)
 
 ## Sliding Window Technique
 
