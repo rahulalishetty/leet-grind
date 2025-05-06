@@ -85,6 +85,12 @@
 - [`297. Serialize and Deserialize Binary Tree`](./297.SerializeandDeserializeBinaryTree/DESC.md)
 - [`236. Lowest Common Ancestor of a Binary Tree`](./236.LowestCommonAncestorofaBinaryTree/DESC.md)
 
+## Binary Search Essentials
+
+- [`Different Flavours of Binary Search`](./153.FindMinimuminRotatedSortedArray/binary-search-titbits.md)
+- [`153. Find Minimum in Rotated Sorted Array`](./153.FindMinimuminRotatedSortedArray/DESC.md)
+- [`154. Find Minimum in Rotated Sorted Array II`](./154.FindMinimuminRotatedSortedArrayII/DESC.md)
+
 ## N-ary tree Essentials
 
 - [`431. Encode N-ary Tree to Binary Tree`](./431.EncodeN-aryTreetoBinaryTree/DESC.md)
