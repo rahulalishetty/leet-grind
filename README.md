@@ -123,4 +123,12 @@
 - [`84. Largest Rectangle in Histogram`](./84.LargestRectangleinHistogram/DESC.md)
 - [`85. Maximal Rectangle`](./85.MaximalRectangle/DESC.md) : Has Interesting combination of above problem solution
 
+## Advanced Dynamic Programming
+
+- [`730. Count Different Palindromic Subsequences`](./730.CountDifferentPalindromicSubsequences/DESC.md)
+
+## Graph
+
+- [`269. Alien Directory`](./269.AlienDictionary/DESC.md) : Interesting application of topological ordering
+
 - Problem Description is added as DESC.md
