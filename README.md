@@ -131,4 +131,16 @@
 
 - [`269. Alien Directory`](./269.AlienDictionary/DESC.md) : Interesting application of topological ordering
 
-- Problem Description is added as DESC.md
+## Union Find
+
+- [`Principle of Union Find`](./305.NumberofIslandsII/union_find.md)
+- [`305. Number of Islands II`](./305.NumberofIslandsII/DESC.md)
+- [`1101. The Earliest Moment When Everyone Become Friends`](./1101.TheEarliestMomentWhenEveryoneBecomeFriends/DESC.md)
+- [`399. Evaluate Division`](./399.EvaluateDivision/DESC.md)
+- [`1202. Smallest String With Swaps`](./1202.SmallestStringWithSwaps/DESC.md)
+- [`1168. Optimize Water Distribution in a Village`](./1168.OptimizeWaterDistributioninaVillage/DESC.md): Very Interesting application of Union Find with minimum spanning tree
+
+## Minimum Spanning Tree
+
+- [`Principle of Minimum Spanning Tree`](./1584.MinCosttoConnectAllPoints/min_spanning_tree.md)
+- [`1584. Min Cost to Connect All Points`](./1584.MinCosttoConnectAllPoints/DESC.md)

@@ -54,9 +54,10 @@ class UnionFind {
   union(x, y) {
     const xSet = this.find(x),
       ySet = this.find(y);
-    if (this.rank[xSet] === this.rank[ySet]) {
-      return;
-    } else if (this.rank[xSet] < this.rank[ySet]) {
+
+    if (xSet === ySet) return;
+
+    if (this.rank[xSet] < this.rank[ySet]) {
       this.parent[xSet] = ySet;
     } else if (this.rank[xSet] > this.rank[ySet]) {
       this.parent[ySet] = xSet;
