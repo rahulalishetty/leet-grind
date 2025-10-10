@@ -122,6 +122,7 @@
 - [`65. ValidNumber`](./65.ValidNumber/DESC.md) : Has Interesting way of solving through `DFA`
 - [`84. Largest Rectangle in Histogram`](./84.LargestRectangleinHistogram/DESC.md)
 - [`85. Maximal Rectangle`](./85.MaximalRectangle/DESC.md) : Has Interesting combination of above problem solution
+- [`1738. Find Kth Largest XOR Coordinate Value`](./1738.FindKthLargestXORCoordinateValue/DESC.md) : Interesting Application of quick sort
 
 ## Advanced Dynamic Programming
 
@@ -144,3 +145,8 @@
 
 - [`Principle of Minimum Spanning Tree`](./1584.MinCosttoConnectAllPoints/min_spanning_tree.md)
 - [`1584. Min Cost to Connect All Points`](./1584.MinCosttoConnectAllPoints/DESC.md)
+
+## Segment Tree
+
+- [`Segment Trees`](./315.CountofSmallerNumbersAfterSelf/segment_trees.md)
+- [`307. RangeSumQuery - Mutable`](./307.RangeSumQuery-Mutable/DESC.md)
