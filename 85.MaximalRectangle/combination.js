@@ -1,10 +1,12 @@
 // uses logic from  84 - Largest Rectangle in Histogram.
 var maximalRectangle = function (matrix) {
   if (matrix.length === 0) return 0;
+
   let maxarea = 0;
   let dp = Array(matrix.length)
     .fill(0)
     .map(() => Array(matrix[0].length).fill(0));
+
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[0].length; j++) {
       if (matrix[i][j] === "1") {

@@ -116,14 +116,6 @@
 
 - [`76. Minimum Window Substring`](./76.MinimumWindowSubstring/DESC.md)
 
-## Interesting
-
-- [`10. Regular Expression Matching`](./10.RegularExpressionMatching/DESC.md)
-- [`65. ValidNumber`](./65.ValidNumber/DESC.md) : Has Interesting way of solving through `DFA`
-- [`84. Largest Rectangle in Histogram`](./84.LargestRectangleinHistogram/DESC.md)
-- [`85. Maximal Rectangle`](./85.MaximalRectangle/DESC.md) : Has Interesting combination of above problem solution
-- [`1738. Find Kth Largest XOR Coordinate Value`](./1738.FindKthLargestXORCoordinateValue/DESC.md) : Interesting Application of quick sort
-
 ## Advanced Dynamic Programming
 
 - [`730. Count Different Palindromic Subsequences`](./730.CountDifferentPalindromicSubsequences/DESC.md)
@@ -150,3 +142,30 @@
 
 - [`Segment Trees`](./315.CountofSmallerNumbersAfterSelf/segment_trees.md)
 - [`307. RangeSumQuery - Mutable`](./307.RangeSumQuery-Mutable/DESC.md)
+- [`699. Falling Squares`](./699.FallingSquares/DESC.md) - Interesting segment tree application
+- [`729. My Calendar I`](./729.MyCalendarI/DESC.md)
+- [`731. My Calendar II`](./731.MyCalendarII/DESC.md) - Line Sweep Technique
+- [`3739. Count Subarrays With Majority Element II`](./3739.CountSubarraysWithMajorityElementII/DESC.md)
+
+## Greedy
+
+- [`646. MaximumLengthofPairChain`](./646.MaximumLengthofPairChain/DESC.md)
+
+## Monotonic Stack
+
+- [`42. Trapping Rain Water`](./42.TrappingRainWater/DESC.md)
+
+## Interesting
+
+- [`10. Regular Expression Matching`](./10.RegularExpressionMatching/DESC.md)
+- [`65. ValidNumber`](./65.ValidNumber/DESC.md) : Has Interesting way of solving through `DFA`
+- [`84. Largest Rectangle in Histogram`](./84.LargestRectangleinHistogram/DESC.md)
+- [`85. Maximal Rectangle`](./85.MaximalRectangle/DESC.md) : Has Interesting combination of above problem solution
+- [`1738. Find Kth Largest XOR Coordinate Value`](./1738.FindKthLargestXORCoordinateValue/DESC.md) : Interesting Application of quick sort
+- [`645. SetMismatch`](./645.SetMismatch/DESC.md) : Cyclic sort and Xor Application
+
+## Java Concurrency
+
+- [`1114. Print in Order`](./1114.PrintinOrder/DESC.md)
+- [`1115. Print FooBar Alternately`](./1115.PrintFooBarAlternately/DESC.md)
+- [`1116. Print Zero Even Odd`](./1116.PrintZeroEvenOdd/DESC.md)
