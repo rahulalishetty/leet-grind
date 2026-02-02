@@ -109,8 +109,19 @@
 
 ## Graph Essentials
 
+- [`490. The Maze`](./490.TheMaze/DESC.md)
+- [`505. The Maze II`](./505.TheMazeII/DESC.md)
+- [`499. The Maze III`](./499.TheMazeIII/DESC.md) - Interesting Dijkstra
+- [`133. Clone Graph`](./133.CloneGraph/DESC.md)
+- [`329. Longest Increasing Path in a Matrix`](./329.LongestIncreasingPathinaMatrix/DESC.md)
+- [`399. Evaluate Division`](./399.EvaluateDivision/DESC.md)
+- [`207. Course Schedule`](./207.CourseSchedule/DESC.md)
+- [`261. Graph Valid Tree`](./261.GraphValidTree/DESC.md)
 - [`127. Word Ladder`](./127.WordLadder/DESC.md)
 - [`126. Word Ladder II`](./126.WordLadderII/DESC.md)
+- [`631. Design Excel Sum Formula`](./631.DesignExcelSumFormula/DESC.md)
+- [`797. All Paths From Source to Target`](./797.AllPathsFromSourcetoTarget/DESC.md)
+- [`834. Sum of Distances in Tree`](./834.SumofDistancesinTree/DESC.md) - Interesting
 
 ## Sliding Window Technique
 
@@ -154,6 +165,7 @@
 ## Monotonic Stack
 
 - [`42. Trapping Rain Water`](./42.TrappingRainWater/DESC.md)
+- [`1063. Number of Valid Subarrays`](./1063.NumberofValidSubarrays/DESC.md)
 
 ## Interesting
 
@@ -169,3 +181,7 @@
 - [`1114. Print in Order`](./1114.PrintinOrder/DESC.md)
 - [`1115. Print FooBar Alternately`](./1115.PrintFooBarAlternately/DESC.md)
 - [`1116. Print Zero Even Odd`](./1116.PrintZeroEvenOdd/DESC.md)
+
+## String Pattern Matching
+
+- [`459. Repeated Substring Pattern`](./459.RepeatedSubstringPattern/DESC.md)
