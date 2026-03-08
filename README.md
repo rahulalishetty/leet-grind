@@ -36,6 +36,10 @@
 - [`87. ScrambleString`](./87.ScrambleString/DESC.md)
 - [`131. Palindrome Partition`](./131.PalindromePartitioning/DESC.md)
 - [`132. Palindrome Partitioning II`](./132.PalindromePartitioningII/DESC.md)
+- [`96. Unique Binary Search Trees`](./96.UniqueBinarySearchTrees/DESC.md)
+- [`465. Optimal Account Balancing`](./465.OptimalAccountBalancing/DESC.md)
+- [`727. Minimum Window Subsequence`](./727.MinimumWindowSubsequence/DESC.md)
+- [`1062. Longest Repeating Substring`](./1062.LongestRepeatingSubstring/DESC.md) - Interesting String substring matching
 
 ## Bit Manipulation Essentials
 
@@ -146,8 +150,10 @@
 
 ## Minimum Spanning Tree
 
-- [`Principle of Minimum Spanning Tree`](./1584.MinCosttoConnectAllPoints/min_spanning_tree.md)
+- [`1584. Principle of Minimum Spanning Tree`](./1584.MinCosttoConnectAllPoints/min_spanning_tree.md)
 - [`1584. Min Cost to Connect All Points`](./1584.MinCosttoConnectAllPoints/DESC.md)
+- [`1135. Connecting Cities With Minimum Cost`](./1135.ConnectingCitiesWithMinimumCost/)
+- [`1568. Minimum Number of Days to Disconnect Island`](./1568.MinimumNumberofDaystoDisconnectIsland/DESC.md)
 
 ## Segment Tree
 
@@ -185,3 +191,22 @@
 ## String Pattern Matching
 
 - [`459. Repeated Substring Pattern`](./459.RepeatedSubstringPattern/DESC.md)
+
+## Number Theory
+
+- [`914. X of a Kind in a Deck of Cards (interesting GCD)`](./914.XofaKindinaDeckofCards/DESC.md)
+- [`952. Largest Component Size by Common Factor (interesting UF application)`](./952.LargestComponentSizebyCommonFactor/DESC.md)
+- [`2464. Minimum Subarrays in a Valid Split`](./2464.MinimumSubarraysinaValidSplit/DESC.md)
+- [`2941. Maximum GCD-Sum of a Subarray (Sparse Tree and Prefix Sum)`](./2941.MaximumGCD-SumofaSubarray/DESC.md)
+
+## SQL
+
+- [`176. Second Highest Salary`](./176.SecondHighestSalary/DESC.md)
+- [`178. Rank Scores (Correlated query, Window Function - DenseRank)`](./178.RankScores/DESC.md)
+- [`197. Rising Temperature (Lag window Function)`](./197.RisingTemperature/DESC.md)
+- [`262. Trips and Users`](./262.TripsandUsers/DESC.md)
+- [`511. Game Play Analysis I`](./511.GamePlayAnalysisI/DESC.md)
+- [`512. Game Play Analysis II`](./512.GamePlayAnalysisII/DESC.md)
+- [`534. Game Play Analysis III`](./534.GamePlayAnalysisIII/DESC.md)
+- [`550. Game Play Analysis IV`](./550.GamePlayAnalysisIV/DESC.md)
+- [`569. Median Employee Salary`](./569.MedianEmployeeSalary/DESC.md)

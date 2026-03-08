@@ -1,4 +1,4 @@
-# Overvieww of Minimum Spanning Tree
+# Overview of Minimum Spanning Tree
 
 what is a spanning tree? A spanning tree is a connected subgraph in an undirected graph where all vertices are connected with the minimum number of edges.
 
