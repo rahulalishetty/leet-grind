@@ -1,7 +1,3 @@
-from textwrap import dedent
-
-md = dedent(r"""
-
 # 3735. Lexicographically Smallest String After Reverse II — TLE Fix
 
 ## Why the previous solution TLEs
@@ -329,11 +325,3 @@ to:
 ```text
 O(n log n)
 ```
-
-""")
-
-path = "/mnt/data/3735_tle_fix_o_n_log_n.md"
-with open(path, "w", encoding="utf-8") as f:
-f.write(md)
-
-print(path)
