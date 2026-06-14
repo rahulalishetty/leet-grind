@@ -1,9 +1,3 @@
-# Create a Markdown file for the problem statement
-
-import pypandoc
-
-content = """
-
 # 1533. Find the Index of the Large Integer
 
 ## Problem Description
@@ -164,10 +158,3 @@ All elements are **equal except one element which is larger**.
 
 1. What if **two numbers** in the array are larger than the rest?
 2. What if there is **one number larger** and **one number smaller** than the rest?
-   """
-
-path = "/mnt/data/find_index_large_integer_1533.md"
-
-pypandoc.convert_text(content, "md", format="md", outputfile=path, extra_args=["--standalone"])
-
-path

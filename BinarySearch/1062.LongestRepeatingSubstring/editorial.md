@@ -401,6 +401,39 @@ Track the maximum value in the DP table.
 ## Implementation
 
 ```java
+// top down
+class Solution {
+    private int[][] memo;
+    private String s;
+    private int maxLength = 0;
+
+    public int longestRepeatingSubstring(String s) {
+        this.s = s;
+        int length = s.length();
+        memo = new int[length + 1][length + 1];
+        for (int[] row : memo) Arrays.fill(row, -1);
+
+        for (int i = 1; i <= length; i++)
+            for (int j = i + 1; j <= length; j++)
+                maxLength = Math.max(maxLength, solve(i, j));
+
+        return maxLength;
+    }
+
+    private int solve(int i, int j) {
+        if (i == 0 || j == 0) return 0;
+        if (memo[i][j] != -1) return memo[i][j];
+
+        if (s.charAt(i - 1) == s.charAt(j - 1))
+            memo[i][j] = solve(i - 1, j - 1) + 1;
+        else
+            memo[i][j] = 0;
+
+        return memo[i][j];
+    }
+}
+
+// bottom up
 class Solution {
 
     public int longestRepeatingSubstring(String s) {

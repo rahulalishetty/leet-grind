@@ -23,6 +23,8 @@ number of positions i where names[path[i]] != targetPath[i]
 This is not full Levenshtein distance.
 There are no insertions or deletions. Only position-wise mismatches matter.
 
+![alt text](image-4.png)
+
 ---
 
 # Main idea

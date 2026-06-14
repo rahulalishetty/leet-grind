@@ -6,6 +6,8 @@ Given an integer n, return all the structurally unique BST's (binary search tree
 
 Example 1:
 
+![alt text](image.png)
+
 ```note
 Input: n = 3
 Output: [[1,null,2,null,3],[1,null,3,2],[2,1,3],[3,1,null,null,2],[3,2,null,1]]

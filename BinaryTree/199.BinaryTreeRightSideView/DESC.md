@@ -1,7 +1,3 @@
-from pathlib import Path
-
-content = """
-
 # 199. Binary Tree Right Side View
 
 ## Problem
@@ -92,9 +88,3 @@ root = []
 
 - Number of nodes in the tree: **[0, 100]**
 - `-100 ≤ Node.val ≤ 100`
-  """
-
-path = Path("/mnt/data/binary_tree_right_side_view_199.md")
-path.write_text(content)
-
-path

@@ -328,3 +328,108 @@ O(1)
 ```
 
 Both binary search and scanning require constant extra memory.
+
+# Dry Run Summary: `minArea` Binary Search Solution
+
+## Grid Used
+
+```
+. . . . .   (row 0)
+. . 1 . .   (row 1)
+. 1 1 1 .   (row 2)
+. . 1 . .   (row 3)
+. . . . .   (row 4)
+```
+
+Called with `minArea(image, 1, 2)` — `m=5, n=5`
+
+---
+
+## 1. `searchColumns` for `left`
+
+**Call:** `searchColumns(image, 0, 2, 0, 5, true)`
+**Goal:** First column (0–2) containing a black pixel (`whiteToBlack=true`)
+
+| i   | j   | mid | Column Scan Result                    | Condition     | Action       |
+| --- | --- | --- | ------------------------------------- | ------------- | ------------ |
+| 0   | 2   | 1   | col 1: black found at row 2 (k=2 < 5) | true == true  | j = 1        |
+| 0   | 1   | 0   | col 0: all white (k=5, not < 5)       | false != true | i = 1        |
+| 1   | 1   | —   | loop ends                             | —             | **return 1** |
+
+**Result:** `left = 1`
+
+---
+
+## 2. `searchColumns` for `right`
+
+**Call:** `searchColumns(image, 3, 5, 0, 5, false)`
+**Goal:** First column (3–5) that is all-white (`whiteToBlack=false`)
+
+| i   | j   | mid | Column Scan Result                    | Condition      | Action       |
+| --- | --- | --- | ------------------------------------- | -------------- | ------------ |
+| 3   | 5   | 4   | col 4: all white (k=5, not < 5)       | false == false | j = 4        |
+| 3   | 4   | 3   | col 3: black found at row 2 (k=2 < 5) | true != false  | i = 4        |
+| 4   | 4   | —   | loop ends                             | —              | **return 4** |
+
+**Result:** `right = 4`
+
+---
+
+## 3. `searchRows` for `top`
+
+**Call:** `searchRows(image, 0, 1, 1, 4, true)`
+**Goal:** First row (0–1) containing a black pixel in cols 1–4 (`whiteToBlack=true`)
+
+| i   | j   | mid | Row Scan Result                             | Condition     | Action       |
+| --- | --- | --- | ------------------------------------------- | ------------- | ------------ |
+| 0   | 1   | 0   | row 0: all white in cols 1–4 (k=4, not < 4) | false != true | i = 1        |
+| 1   | 1   | —   | loop ends                                   | —             | **return 1** |
+
+**Result:** `top = 1`
+
+---
+
+## 4. `searchRows` for `bottom`
+
+**Call:** `searchRows(image, 2, 5, 1, 4, false)`
+**Goal:** First row (2–5) that is all-white in cols 1–4 (`whiteToBlack=false`)
+
+| i   | j   | mid | Row Scan Result                             | Condition      | Action       |
+| --- | --- | --- | ------------------------------------------- | -------------- | ------------ |
+| 2   | 5   | 3   | row 3: black found at col 2 (k=2 < 4)       | true != false  | i = 4        |
+| 4   | 5   | 4   | row 4: all white in cols 1–4 (k=4, not < 4) | false == false | j = 4        |
+| 4   | 4   | —   | loop ends                                   | —              | **return 4** |
+
+**Result:** `bottom = 4`
+
+---
+
+## Final Answer
+
+```
+left=1, right=4, top=1, bottom=4
+
+width  = right - left = 4 - 1 = 3
+height = bottom - top = 4 - 1 = 3
+area   = 3 × 3 = 9
+```
+
+---
+
+## Key Condition Decoded
+
+```java
+if ((k < bottom) == whiteToBlack)
+    j = mid;       // condition met → search left half
+else
+    i = mid + 1;   // condition not met → search right half
+```
+
+| whiteToBlack | k < bottom (black found?) | Meaning                      | Action                 |
+| ------------ | ------------------------- | ---------------------------- | ---------------------- |
+| true         | true                      | Looking for black, found it  | j = mid (go left)      |
+| true         | false                     | Looking for black, not found | i = mid + 1 (go right) |
+| false        | false                     | Looking for white, found it  | j = mid (go left)      |
+| false        | true                      | Looking for white, not found | i = mid + 1 (go right) |
+
+Both `searchColumns` and `searchRows` perform the same binary search pattern — **"find the leftmost column/row matching the condition"** — with `whiteToBlack` flipping the condition between the `left/top` and `right/bottom` calls.

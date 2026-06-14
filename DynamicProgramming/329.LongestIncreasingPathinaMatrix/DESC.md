@@ -1,35 +1,69 @@
 # 329. Longest Increasing Path in a Matrix
 
-Given an `m x n` integers matrix, return the length of the longest increasing path in the matrix.
+## Problem
 
-From each cell, you can move in four directions: left, right, up, or down. Diagonal moves or moves outside the boundary (i.e., wrap-around) are not allowed.
+Given an `m x n` integer matrix, return the length of the **longest increasing path** in the matrix.
 
-## Examples
+From each cell, you can move in four directions:
 
-### Example 1
+- up
+- down
+- left
+- right
+
+### Rules
+
+- You may **not** move diagonally
+- You may **not** move outside the matrix
+- Each next cell in the path must have a **strictly larger** value
+
+---
+
+## Example 1
+
+![alt text](image.png)
 
 **Input:**
 `matrix = [[9,9,4],[6,6,8],[2,1,1]]`
+
 **Output:**
 `4`
-**Explanation:**
-The longest increasing path is `[1, 2, 6, 9]`.
 
-### Example 2
+**Explanation:**
+The longest increasing path is:
+
+`[1, 2, 6, 9]`
+
+---
+
+## Example 2
+
+![alt text](image-1.png)
 
 **Input:**
 `matrix = [[3,4,5],[3,2,6],[2,2,1]]`
+
 **Output:**
 `4`
-**Explanation:**
-The longest increasing path is `[3, 4, 5, 6]`. Diagonal moves are not allowed.
 
-### Example 3
+**Explanation:**
+The longest increasing path is:
+
+`[3, 4, 5, 6]`
+
+Diagonal moves are not allowed.
+
+---
+
+## Example 3
 
 **Input:**
 `matrix = [[1]]`
+
 **Output:**
 `1`
+
+---
 
 ## Constraints
 

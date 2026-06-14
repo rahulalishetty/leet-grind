@@ -1,7 +1,3 @@
-import pypandoc
-
-text = """
-
 # 230. Kth Smallest Element in a BST
 
 ## Problem
@@ -67,9 +63,3 @@ Possible idea:
 - Augment the BST by storing **subtree sizes** at each node.
 - Maintain the size during **insert/delete operations**.
 - This allows finding the **kth smallest element in O(log n)** time by navigating the tree based on subtree sizes.
-  """
-
-out = "/mnt/data/kth_smallest_bst_230.md"
-pypandoc.convert_text(text, "md", format="md", outputfile=out, extra_args=["--standalone"])
-
-out

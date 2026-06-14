@@ -8,6 +8,8 @@ In Pascal's triangle, each number is the sum of the two numbers directly above i
 
 Example 1:
 
+![Pascal's Triangle](./PascalTriangleAnimated2.gif)
+
 ```note
 Input: rowIndex = 3
 Output: [1,3,3,1]

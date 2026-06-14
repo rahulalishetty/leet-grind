@@ -1,7 +1,3 @@
-from textwrap import dedent
-
-md = dedent("""
-
 # 294. Flip Game II
 
 ## Problem Statement
@@ -272,11 +268,3 @@ Thus the practical runtime is much smaller than the naive exponential bound.
 - The optimal strategy uses **recursion + memoization**
 - A player wins if they can move the opponent into a **losing state**
 - The problem demonstrates a classic **game state DP pattern**
-  """)
-
-path = "/mnt/data/294_flip_game_ii_problem.md"
-
-with open(path, "w") as f:
-f.write(md)
-
-print(path)

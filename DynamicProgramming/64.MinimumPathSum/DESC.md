@@ -8,6 +8,8 @@ Note: You can only move either down or right at any point in time.
 
 Example 1:
 
+![alt text](image.png)
+
 ```note
 Input: grid = [[1,3,1],[1,5,1],[4,2,1]]
 Output: 7

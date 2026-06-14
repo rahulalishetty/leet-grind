@@ -16,6 +16,8 @@ Leaf Level → ... → Root Level
 
 ## Example 1
 
+![alt text](image-1.png)
+
 ### Input
 
 ```

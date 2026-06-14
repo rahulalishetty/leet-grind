@@ -15,6 +15,8 @@ This means the traversal alternates direction at every level:
 
 ## Example 1
 
+![alt text](image-3.png)
+
 ### Input
 
 ```

@@ -1,7 +1,3 @@
-import pypandoc
-
-text = """
-
 # 272. Closest Binary Search Tree Value II — Solution Approaches
 
 ## Approach 1: Sort With Custom Comparator
@@ -326,9 +322,3 @@ O(n)
 ```
 O(n + k)
 ```
-
-"""
-
-out = "/mnt/data/closest_bst_value_ii_solution.md"
-pypandoc.convert_text(text, "md", format="md", outputfile=out, extra_args=["--standalone"])
-out

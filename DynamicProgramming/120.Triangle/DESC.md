@@ -11,7 +11,7 @@ For each step, you may move to an adjacent number of the row below. More formall
 **Explanation:** The triangle looks like:
 
 ```
-  2
+   2
   3 4
  6 5 7
 4 1 8 3

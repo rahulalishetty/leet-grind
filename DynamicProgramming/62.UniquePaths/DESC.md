@@ -10,6 +10,8 @@ The test cases are generated so that the answer will be less than or equal to 2 
 
 Example 1:
 
+![alt text](image.png)
+
 ```note
 Input: m = 3, n = 7
 Output: 28

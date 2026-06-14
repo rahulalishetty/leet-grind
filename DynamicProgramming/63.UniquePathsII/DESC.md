@@ -10,6 +10,8 @@ The testcases are generated so that the answer will be less than or equal to 2 \
 
 Example 1:
 
+![alt text](image.png)
+
 ```note
 Input: obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
 Output: 2
@@ -20,9 +22,11 @@ There are two ways to reach the bottom-right corner:
 2. Down -> Down -> Right -> Right
 ```
 
-```note
 Example 2:
 
+![alt text](image-1.png)
+
+```note
 Input: obstacleGrid = [[0,1],[0,0]]
 Output: 1
 ```

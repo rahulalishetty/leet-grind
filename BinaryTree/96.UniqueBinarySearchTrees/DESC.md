@@ -2,6 +2,8 @@
 
 Given an integer n, return the number of structurally unique BSTs (binary search trees) which have exactly n nodes of unique values from 1 to n.
 
+![alt text](image.png)
+
 ## Example 1:
 
 **Input:** n = 3

@@ -16,6 +16,8 @@ Note: a + b is the concatenation of strings a and b.
 
 Example 1:
 
+![alt text](image.png)
+
 ```note
 Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
 Output: true
