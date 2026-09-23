@@ -13,15 +13,19 @@ Return `true` if and only if the graph is bipartite.
 
 ## Example 1
 
-**Input:** `graph = [[1,2,3],[0,2],[0,1,3],[0,2]]`
-**Output:** `false`
-**Explanation:** There is no way to partition the nodes into two independent sets such that every edge connects a node in one set and a node in the other.
+![alt text](image.png)
+
+- **Input:** `graph = [[1,2,3],[0,2],[0,1,3],[0,2]]`
+- **Output:** `false`
+- **Explanation:** There is no way to partition the nodes into two independent sets such that every edge connects a node in one set and a node in the other.
 
 ## Example 2
 
-**Input:** `graph = [[1,3],[0,2],[1,3],[0,2]]`
-**Output:** `true`
-**Explanation:** We can partition the nodes into two sets: `{0, 2}` and `{1, 3}`.
+![alt text](image-1.png)
+
+- **Input:** `graph = [[1,3],[0,2],[1,3],[0,2]]`
+- **Output:** `true`
+- **Explanation:** We can partition the nodes into two sets: `{0, 2}` and `{1, 3}`.
 
 ## Constraints
 

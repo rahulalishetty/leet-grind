@@ -6,6 +6,8 @@ We will send a signal from a given node `k`. Return the minimum time it takes fo
 
 ## Example 1:
 
+![alt text](image.png)
+
 Input:
 
 ```

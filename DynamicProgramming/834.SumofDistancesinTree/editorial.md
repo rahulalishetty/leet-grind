@@ -1,671 +1,223 @@
-# Sum of Distances in Tree — Exhaustive Solution Notes
+# 834. Sum of Distances in Tree
 
-## Overview
+## Problem Recap
 
-This problem asks us to compute, for **every node** in a tree, the sum of distances from that node to all other nodes.
-
-If we do this naively for each node, we might run a full traversal from every starting point, which leads to:
-
-```text
-O(N^2)
-```
-
-That is too slow for large trees.
-
-The accepted solution uses a very elegant **tree DP + rerooting** technique:
-
-1. a **post-order DFS** to compute subtree sizes and subtree distance sums
-2. a **pre-order DFS** to reroot the answer from parent to child in constant time per edge
-
-This gives a linear-time solution.
+Given an undirected connected tree with `n` nodes (`0` to `n-1`) and `n-1` edges, return an array `answer` where `answer[i]` is the sum of distances from node `i` to every other node in the tree.
 
 ---
 
-## Problem Idea
+## Approach 1: Brute Force (BFS/DFS from every node)
 
-Let:
+**Idea:** For each node, run a BFS (or DFS) to compute distances to all other nodes and sum them up.
 
-```text
-ans[x]
-```
+**Why it works:** This is the most direct translation of the problem statement — literally compute `dist(i, j)` for every pair.
 
-be the sum of distances from node `x` to every other node in the tree.
+**Complexity:**
 
-We want to compute `ans[x]` for all nodes.
-
-The main question is:
-
-> If we already know the answer for one node, can we derive the answer for a neighboring node quickly?
-
-That turns out to be the key insight.
-
----
-
-# Core Intuition
-
-Consider two neighboring nodes:
-
-```text
-x -- y
-```
-
-If we cut the edge between them, the tree splits into two parts:
-
-- `X`: the component containing `x`
-- `Y`: the component containing `y`
-
-Now think about moving the root of the answer from `x` to `y`.
-
-For every node in `Y`, the distance to `y` is **1 less** than the distance to `x`.
-
-For every node in `X`, the distance to `y` is **1 more** than the distance to `x`.
-
-So if `|Y|` is the number of nodes in `Y`, then:
-
-```text
-ans[y] = ans[x] - |Y| + |X|
-```
-
-Since:
-
-```text
-|X| = N - |Y|
-```
-
-we get:
-
-```text
-ans[y] = ans[x] - |Y| + (N - |Y|)
-```
-
-In the rooted-tree version of the algorithm, if `y` is a child of `x`, then:
-
-```text
-|Y| = count[y]
-```
-
-where `count[y]` is the size of the subtree rooted at `y`.
-
-Thus:
-
-```text
-ans[child] = ans[parent] - count[child] + (N - count[child])
-```
-
-This is the rerooting formula.
-
----
-
-# Approach: Subtree Sum and Count
-
-## High-Level Plan
-
-We root the tree arbitrarily, usually at node `0`.
-
-Then we compute two things for every node:
-
-### 1. `count[node]`
-
-The number of nodes in the subtree rooted at `node`.
-
-### 2. `ans[node]` during first DFS
-
-Initially, this stores the sum of distances from `node` to all nodes in its own subtree.
-
-After the first DFS:
-
-- `count[node]` is correct for every node
-- `ans[0]` becomes the full answer for the root
-
-Then we use a second DFS to propagate the answer from parent to child using the rerooting formula.
-
----
-
-# First DFS: Post-Order Traversal
-
-## Goal
-
-Compute:
-
-- subtree sizes
-- subtree distance sums
-
-Suppose `child` is a child of `node`.
-
-If we already know:
-
-- `count[child]`
-- `ans[child]` = sum of distances from `child` to all nodes in its subtree
-
-then when we move up to `node`:
-
-- all nodes in `child`'s subtree are now 1 farther away from `node` than from `child`
-- so their total contribution becomes:
-
-```text
-ans[child] + count[child]
-```
-
-Thus:
-
-```text
-count[node] += count[child]
-ans[node] += ans[child] + count[child]
-```
-
-This is why post-order traversal works: children are solved before the parent.
-
----
-
-## Meaning After First DFS
-
-After the first DFS:
-
-- `count[node]` = number of nodes in node's subtree
-- `ans[node]` = sum of distances from `node` to all nodes in its subtree
-
-In particular, for the root, the subtree is the entire tree, so:
-
-```text
-ans[root]
-```
-
-is already the final answer for the root.
-
----
-
-# Second DFS: Pre-Order Traversal
-
-## Goal
-
-Use the answer for a parent to derive the answer for each child.
-
-If `child` is a child of `node`, then:
-
-- there are `count[child]` nodes in the child’s subtree
-- these nodes become 1 **closer** when moving from `node` to `child`
-- the remaining `N - count[child]` nodes become 1 **farther**
-
-So:
-
-```text
-ans[child] = ans[node] - count[child] + (N - count[child])
-```
-
-Once we compute `ans[child]`, we continue DFS into that child.
-
-This is a classic rerooting step.
-
----
-
-# Why This Works
-
-When moving the root from parent to child:
-
-- every node inside the child’s subtree decreases its distance by 1
-- every node outside the child’s subtree increases its distance by 1
-
-That change can be computed using only the subtree size.
-
-So once subtree sizes are known, each reroot transition costs only `O(1)`.
-
-Since every edge is traversed twice overall, the whole algorithm is linear.
-
----
-
-# Data Structures Used
-
-We use:
-
-- `graph`: adjacency list of the tree
-- `count[node]`: subtree size
-- `ans[node]`: answer array
-
-The adjacency list is usually implemented as:
-
-```java
-List<Set<Integer>>
-```
-
-or more commonly:
-
-```java
-List<List<Integer>>
-```
-
-Both work.
-
----
-
-# Step-by-Step Algorithm
-
-## Step 1: Build the Graph
-
-Convert the edge list into an adjacency list.
-
----
-
-## Step 2: Initialize Arrays
-
-- `count[node] = 1` for every node initially, because every node counts itself
-- `ans[node] = 0`
-
----
-
-## Step 3: Run Post-Order DFS
-
-For each child:
-
-- recurse into child
-- update:
-  ```text
-  count[node] += count[child]
-  ans[node] += ans[child] + count[child]
-  ```
-
-After this, `ans[0]` is the final answer for root `0`.
-
----
-
-## Step 4: Run Pre-Order DFS
-
-For each child of `node`:
-
-```text
-ans[child] = ans[node] - count[child] + N - count[child]
-```
-
-Then recurse into that child.
-
-This fills all answers.
-
----
-
-# Java Implementation
+- Time: `O(n^2)` — one `O(n)` traversal per node.
+- Space: `O(n)` for the adjacency list and BFS queue/visited array.
+- This is **too slow** for `n` up to `3 * 10^4` (worst case ~9\*10^8 operations), but it's a great starting point and works fine for small inputs.
 
 ```java
 import java.util.*;
 
-class Solution {
-    int[] ans, count;
-    List<Set<Integer>> graph;
-    int N;
-
-    public int[] sumOfDistancesInTree(int N, int[][] edges) {
-        this.N = N;
-        graph = new ArrayList<>();
-        ans = new int[N];
-        count = new int[N];
-        Arrays.fill(count, 1);
-
-        for (int i = 0; i < N; ++i) {
-            graph.add(new HashSet<>());
+class SolutionBruteForce {
+    public int[] sumOfDistancesInTree(int n, int[][] edges) {
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < n; i++) graph.add(new ArrayList<>());
+        for (int[] e : edges) {
+            graph.get(e[0]).add(e[1]);
+            graph.get(e[1]).add(e[0]);
         }
 
-        for (int[] edge : edges) {
-            graph.get(edge[0]).add(edge[1]);
-            graph.get(edge[1]).add(edge[0]);
+        int[] answer = new int[n];
+        for (int start = 0; start < n; start++) {
+            answer[start] = bfsSumOfDistances(start, n, graph);
         }
-
-        dfs(0, -1);
-        dfs2(0, -1);
-
-        return ans;
+        return answer;
     }
 
-    public void dfs(int node, int parent) {
-        for (int child : graph.get(node)) {
-            if (child != parent) {
-                dfs(child, node);
-                count[node] += count[child];
-                ans[node] += ans[child] + count[child];
-            }
-        }
-    }
+    private int bfsSumOfDistances(int start, int n, List<List<Integer>> graph) {
+        int[] dist = new int[n];
+        Arrays.fill(dist, -1);
+        dist[start] = 0;
 
-    public void dfs2(int node, int parent) {
-        for (int child : graph.get(node)) {
-            if (child != parent) {
-                ans[child] = ans[node] - count[child] + N - count[child];
-                dfs2(child, node);
+        Deque<Integer> queue = new ArrayDeque<>();
+        queue.offer(start);
+
+        int total = 0;
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            for (int next : graph.get(node)) {
+                if (dist[next] == -1) {
+                    dist[next] = dist[node] + 1;
+                    total += dist[next];
+                    queue.offer(next);
+                }
             }
         }
+        return total;
     }
 }
 ```
 
 ---
 
-# Walkthrough on a Small Example
+## Approach 2: Optimal — Reroot Technique (Two-Pass DFS)
 
-Consider the tree:
+**Idea (subtree sizes + rerooting):**
 
-```text
-    0
-   / \
-  1   2
-     / \
-    3   4
+This is the classic "tree DP with rerooting" trick. It works in two phases:
+
+**Phase 1 — Post-order DFS (rooted at node 0):**
+For every node `u`, compute:
+
+- `count[u]` = number of nodes in the subtree rooted at `u` (including `u`).
+- `answer[0]` accumulated as: `answer[0] += ` the sum of distances from the root (node 0) to every node, computed as depth-weighted subtree sizes.
+
+Concretely, while doing the post-order traversal, for each child `v` of `u`:
+
+```
+count[u] += count[v]
+answer[u] += answer[v] + count[v]
 ```
 
-Suppose `N = 5`.
+This works because every node in `v`'s subtree is `count[v]` nodes, and each of those nodes is exactly 1 edge farther from `u` than from `v`. So `answer[v] + count[v]` converts "distances from v" into "distances from u" for that subtree.
 
----
+After phase 1, `answer[0]` is correct (distances from the root to everyone), and `count[u]` tells us the subtree size of every node.
 
-## First DFS (post-order)
+**Phase 2 — Pre-order DFS (reroot from parent to child):**
+Once we know `answer[u]` (distances from `u` to all nodes), we can derive `answer[v]` for a child `v` of `u` in O(1) using this insight:
 
-### Leaves
-
-Nodes `1`, `3`, and `4` are leaves:
-
-```text
-count[1] = 1, ans[1] = 0
-count[3] = 1, ans[3] = 0
-count[4] = 1, ans[4] = 0
-```
-
-### Node 2
-
-Children are `3` and `4`.
+- Moving the "center" from `u` to `v`:
+  - Every node in `v`'s subtree (`count[v]` of them) gets **1 closer**.
+  - Every other node (`n - count[v]` of them) gets **1 farther**.
 
 So:
 
-```text
-count[2] = 1 + count[3] + count[4] = 3
-ans[2] = 0 + (0 + 1) + (0 + 1) = 2
+```
+answer[v] = answer[u] - count[v] + (n - count[v])
 ```
 
-This means from node `2`, the sum of distances to nodes in its subtree `{2,3,4}` is `2`.
+This lets us compute `answer[]` for the entire tree in **two linear passes**.
 
-### Node 0
+**Complexity:**
 
-Children are `1` and `2`.
-
-So:
-
-```text
-count[0] = 1 + count[1] + count[2] = 5
-ans[0] = 0 + (0 + 1) + (2 + 3) = 6
-```
-
-So the answer for root `0` is `6`.
-
-Indeed, distances from `0` are:
-
-```text
-to 1 = 1
-to 2 = 1
-to 3 = 2
-to 4 = 2
-sum = 6
-```
-
-Correct.
-
----
-
-## Second DFS (rerooting)
-
-### From 0 to 1
-
-```text
-ans[1] = ans[0] - count[1] + (N - count[1])
-       = 6 - 1 + 4
-       = 9
-```
-
-Check manually:
-
-```text
-dist(1,0)=1
-dist(1,2)=2
-dist(1,3)=3
-dist(1,4)=3
-sum = 9
-```
-
-Correct.
-
-### From 0 to 2
-
-```text
-ans[2] = 6 - 3 + 2 = 5
-```
-
-Check manually:
-
-```text
-dist(2,0)=1
-dist(2,1)=2
-dist(2,3)=1
-dist(2,4)=1
-sum = 5
-```
-
-Correct.
-
-And similarly for nodes `3` and `4`.
-
----
-
-# Why Two DFS Traversals Are Enough
-
-The first DFS computes:
-
-- local subtree information
-
-The second DFS converts:
-
-- local subtree information into global answers
-
-This works because every child’s answer can be derived directly from its parent’s answer once subtree sizes are known.
-
-So we do not need to recompute distances from scratch for every node.
-
----
-
-# Correctness Intuition
-
-The algorithm is correct because:
-
-1. The post-order DFS correctly aggregates subtree sizes and subtree distance sums.
-2. The root’s subtree is the whole tree, so `ans[root]` becomes correct.
-3. The pre-order DFS uses a mathematically exact rerooting formula:
-   - subtree nodes become 1 closer
-   - outside nodes become 1 farther
-
-Thus every node’s total distance sum is computed correctly.
-
----
-
-# Complexity Analysis
-
-Let `N` be the number of nodes.
-
-## Time Complexity
-
-We traverse every edge:
-
-- once in the first DFS
-- once in the second DFS
-
-So total time is:
-
-```text
-O(N)
-```
-
-because a tree with `N` nodes has `N - 1` edges.
-
----
-
-## Space Complexity
-
-We store:
-
-- adjacency list: `O(N)`
-- `ans` array: `O(N)`
-- `count` array: `O(N)`
-- recursion stack: `O(N)` in the worst case for a skewed tree
-
-So total space complexity is:
-
-```text
-O(N)
-```
-
----
-
-# Common Mistakes
-
-## 1. Trying BFS/DFS from Every Node
-
-That leads to:
-
-```text
-O(N^2)
-```
-
-which is too slow.
-
----
-
-## 2. Forgetting to Initialize `count[node] = 1`
-
-Every subtree includes the node itself, so subtree size should start at 1.
-
----
-
-## 3. Using the Wrong Reroot Formula
-
-The correct reroot transition is:
-
-```text
-ans[child] = ans[parent] - count[child] + (N - count[child])
-```
-
-Not using subtree size correctly here will break the whole solution.
-
----
-
-## 4. Revisiting Parent as a Child
-
-Because the graph is undirected, each DFS must ignore the parent to avoid infinite recursion.
-
----
-
-# Relationship to Tree DP / Rerooting
-
-This is a classic **rerooting DP** problem.
-
-The general pattern is:
-
-1. compute values assuming one fixed root
-2. propagate answers to neighboring roots efficiently
-
-This pattern appears in many advanced tree problems.
-
-If you understand this problem deeply, you are learning one of the most important tree-DP techniques.
-
----
-
-# Final Summary
-
-## Key Arrays
-
-### `count[node]`
-
-Number of nodes in the subtree rooted at `node`.
-
-### `ans[node]`
-
-Eventually, the sum of distances from `node` to all other nodes.
-
----
-
-## First DFS
-
-Post-order:
-
-```text
-count[node] += count[child]
-ans[node] += ans[child] + count[child]
-```
-
-This computes subtree information.
-
----
-
-## Second DFS
-
-Pre-order rerooting:
-
-```text
-ans[child] = ans[node] - count[child] + (N - count[child])
-```
-
-This converts parent answer into child answer.
-
----
-
-## Complexity
-
-- Time: `O(N)`
-- Space: `O(N)`
-
----
-
-# Best Final Java Solution
+- Time: `O(n)` — two DFS traversals, each visiting every node/edge once.
+- Space: `O(n)` for adjacency list, recursion stack (converted to explicit stack below to avoid Java's default recursion depth issues on skewed trees), `count[]`, and `answer[]`.
 
 ```java
 import java.util.*;
 
 class Solution {
-    int[] ans, count;
-    List<Set<Integer>> graph;
-    int N;
-
-    public int[] sumOfDistancesInTree(int N, int[][] edges) {
-        this.N = N;
-        graph = new ArrayList<>();
-        ans = new int[N];
-        count = new int[N];
-        Arrays.fill(count, 1);
-
-        for (int i = 0; i < N; ++i) {
-            graph.add(new HashSet<>());
+    public int[] sumOfDistancesInTree(int n, int[][] edges) {
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < n; i++) graph.add(new ArrayList<>());
+        for (int[] e : edges) {
+            graph.get(e[0]).add(e[1]);
+            graph.get(e[1]).add(e[0]);
         }
 
-        for (int[] edge : edges) {
-            graph.get(edge[0]).add(edge[1]);
-            graph.get(edge[1]).add(edge[0]);
-        }
+        int[] count = new int[n];   // subtree sizes
+        int[] answer = new int[n];  // final answer
+        int[] parent = new int[n];
+        Arrays.fill(parent, -1);
 
-        dfs(0, -1);
-        dfs2(0, -1);
-
-        return ans;
-    }
-
-    public void dfs(int node, int parent) {
-        for (int child : graph.get(node)) {
-            if (child != parent) {
-                dfs(child, node);
-                count[node] += count[child];
-                ans[node] += ans[child] + count[child];
+        // ---------- Phase 1: post-order (iterative) ----------
+        // Build a traversal order (parent before children) using BFS/DFS,
+        // then process it in reverse to simulate post-order.
+        int[] order = new int[n];
+        int idx = 0;
+        boolean[] visited = new boolean[n];
+        Deque<Integer> stack = new ArrayDeque<>();
+        stack.push(0);
+        visited[0] = true;
+        while (!stack.isEmpty()) {
+            int node = stack.pop();
+            order[idx++] = node;
+            for (int next : graph.get(node)) {
+                if (!visited[next]) {
+                    visited[next] = true;
+                    parent[next] = node;
+                    stack.push(next);
+                }
             }
         }
-    }
 
-    public void dfs2(int node, int parent) {
-        for (int child : graph.get(node)) {
-            if (child != parent) {
-                ans[child] = ans[node] - count[child] + N - count[child];
-                dfs2(child, node);
+        Arrays.fill(count, 1); // each node counts itself
+        // Process in reverse traversal order => children before parents (post-order)
+        for (int i = n - 1; i >= 0; i--) {
+            int node = order[i];
+            int p = parent[node];
+            if (p != -1) {
+                count[p] += count[node];
+                answer[p] += answer[node] + count[node];
             }
         }
+
+        // ---------- Phase 2: pre-order (reroot) ----------
+        // Process in original traversal order => parents before children
+        for (int i = 1; i < n; i++) {
+            int node = order[i];
+            int p = parent[node];
+            answer[node] = answer[p] - count[node] + (n - count[node]);
+        }
+
+        return answer;
     }
 }
 ```
 
-This is the standard linear-time rerooting solution for the problem.
+### Walkthrough on Example 1
+
+`n = 6, edges = [[0,1],[0,2],[2,3],[2,4],[2,5]]`
+
+Tree (rooted at 0):
+
+```
+        0
+       / \
+      1   2
+         /|\
+        3 4 5
+```
+
+**Phase 1 (post-order, leaves → root):**
+
+- `count[1]=1, count[3]=1, count[4]=1, count[5]=1`
+- `count[2] = 1 + count[3] + count[4] + count[5] = 4`, `answer[2] = 0+1 + 0+1 + 0+1 = 3`
+- `count[0] = 1 + count[1] + count[2] = 6`
+  `answer[0] = (answer[1]+count[1]) + (answer[2]+count[2]) = (0+1) + (3+4) = 8` ✅ matches expected `answer[0] = 8`
+
+**Phase 2 (reroot, root → leaves):**
+
+- `answer[1] = answer[0] - count[1] + (n - count[1]) = 8 - 1 + 5 = 12` ✅
+- `answer[2] = answer[0] - count[2] + (n - count[2]) = 8 - 4 + 2 = 6` ✅
+- `answer[3] = answer[2] - count[3] + (n - count[3]) = 6 - 1 + 5 = 10` ✅
+- `answer[4] = 6 - 1 + 5 = 10` ✅
+- `answer[5] = 6 - 1 + 5 = 10` ✅
+
+Final: `[8, 12, 6, 10, 10, 10]` — matches the expected output.
+
+---
+
+## Why the Iterative (Stack-Based) Traversal Instead of Recursion?
+
+With `n` up to `3 * 10^4`, a skewed tree (essentially a linked list) could cause a plain recursive DFS to hit **stack overflow** in Java (default thread stack depth is often a few thousand to ~10⁴ frames depending on JVM settings). Using an explicit stack for traversal order, then processing that order forwards/backwards, avoids this risk entirely while keeping the algorithm `O(n)`.
+
+---
+
+## Complexity Comparison
+
+| Approach                      | Time     | Space  | Notes                                    |
+| ----------------------------- | -------- | ------ | ---------------------------------------- |
+| Brute Force (BFS per node)    | `O(n^2)` | `O(n)` | Simple, but TLE for large `n`            |
+| Reroot Technique (2-pass DFS) | `O(n)`   | `O(n)` | Optimal; required for `n` up to `3*10^4` |
+
+---
+
+## Edge Cases Handled
+
+- `n = 1`, `edges = []` → returns `[0]` (single node, no traversal needed, loop bodies simply don't execute).
+- `n = 2` → works correctly since phase 1 computes `answer[0]` directly and phase 2 reroots to node 1.
+- Skewed/linear trees (path graphs) → handled safely via iterative traversal instead of recursion.
